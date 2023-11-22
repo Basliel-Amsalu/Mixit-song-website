@@ -1,3 +1,8 @@
+<img width = "200" alt = "Screenshot 2023-10-31 153234" src ="https://github.com/Basliel-Amsalu/Mixit-song-website/assets/119809588/c60624b5-6d1c-4e0b-825a-35eeb85d98ce">
+<img width = "200" alt = "Screenshot 2023-10-31 153358" src = "https://github.com/Basliel-Amsalu/Mixit-song-website/assets/119809588/ff16f4cf-f443-4048-9078-d2b7fb167d5d">
+<img width = "200" alt = "Screenshot 2023-10-31 153318" src ="https://github.com/Basliel-Amsalu/Mixit-song-website/assets/119809588/1e5e1454-7d78-478f-a948-239cb39001bc">
+<img width ="200" alt = "Screenshot 2023-10-31 153432" src ="https://github.com/Basliel-Amsalu/Mixit-song-website/assets/119809588/a46a9ea7-b504-42c3-ab73-cbfb0d83983f">
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
