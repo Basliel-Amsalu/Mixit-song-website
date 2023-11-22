@@ -1,0 +1,39 @@
+{
+  "songs": [
+    {
+      "name": "Chasing Dreams",
+      "artist": "Ava Johnson",
+      "lyrics": "I'm chasing dreams, across the endless sky,\nWith every step, I'm reaching for the highest high,\nI won't give up, I'll never say goodbye,\nI'm chasing dreams, until the day I touch the sky.",
+      "lengthtime": "3:50",
+      "id": 1
+    },
+    {
+      "name": "Midnight Serenade",
+      "artist": "Ethan Brooks",
+      "lyrics": "In the moonlight's glow, we dance so slow,\nYour whispering words, like a sweet serenade,\nUnderneath the stars, our love starts to grow,\nIn this midnight serenade, our worries fade away.",
+      "lengthtime": "4:10",
+      "id": 2
+    },
+    {
+      "name": "Heart's Desire",
+      "artist": "Olivia Walker",
+      "lyrics": "You're the fire in my soul, my heart's desire,\nIn your warm embrace, I'll never tire,\nTogether we'll conquer, we'll never tire,\nYou're the flame in my heart, my heart's desire.",
+      "lengthtime": "3:25",
+      "id": 3
+    },
+    {
+      "name": "Summer Breeze",
+      "artist": "Lucas Turner",
+      "lyrics": "In the golden sun, we find our ease,\nWalking by the shore, feeling the summer breeze,\nHand in hand, under the tall palm trees,\nOur love is like a warm, gentle summer breeze.",
+      "lengthtime": "3:45",
+      "id": 4
+    },
+    {
+      "name": "City Lights",
+      "artist": "Sophia Mitchell",
+      "lyrics": "Beneath the city lights, we'll find our way,\nIn the neon glow, we'll dance till break of day,\nThe world is ours, as we sway and play,\nBeneath the city lights, our love will never sway.",
+      "lengthtime": "4:00",
+      "id": 5
+    }
+  ]
+}
