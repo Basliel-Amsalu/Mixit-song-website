@@ -63,7 +63,7 @@ function* addSongToServer(action) {
         body: JSON.stringify({
           name: action.payload.title,
           artist: action.payload.artist ?? "unknown",
-          album: action.payload.album,
+          lyrics: action.payload.lyrics,
           lengthtime: action.payload.duration,
         }),
       }
@@ -95,7 +95,7 @@ function* updateSongOnServer(action) {
         body: JSON.stringify({
           name: action.payload.title,
           artist: action.payload.artist ?? "unknown",
-          album: action.payload.album,
+          lyrics: action.payload.lyrics,
           lengthtime: action.payload.duration,
         }),
       }
