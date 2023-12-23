@@ -11,7 +11,6 @@ import {
   SongDetail,
   SongDetailTitle,
   SongDetailText,
-  SongDetailLastText,
   BackToListButton,
   Pre,
 } from "./SongDetails.style";
@@ -22,27 +21,11 @@ function SongDetails() {
   const params = useParams();
   const navigate = useNavigate();
 
-  let isMounted = true;
-
-  const fetchSongData = () => {
-    if (isMounted) {
-      dispatch(getSongs());
-    }
-  };
-
   useEffect(() => {
-    fetchSongData();
-
-    return () => {
-      isMounted = false;
-    };
+    dispatch(getSongs());
   }, [dispatch]);
 
-  useEffect(() => {
-    fetchSongData();
-  }, [params.id, dispatch]);
-
-  const song = songState[params.id - 1];
+  const song = songState.find((song) => song.id.toString() === params.id);
 
   const handleBackToList = () => {
     navigate("/");
