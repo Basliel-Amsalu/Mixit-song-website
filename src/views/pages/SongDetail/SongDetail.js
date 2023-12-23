@@ -56,9 +56,14 @@ function SongDetails() {
               </BackToListButton>
             </>
           ) : (
-            <SongDetail>
-              <SongDetailText>Song not found</SongDetailText>
-            </SongDetail>
+            <>
+              <SongDetail>
+                <SongDetailText>Song not found</SongDetailText>
+              </SongDetail>
+              <BackToListButton onClick={handleBackToList}>
+                Back to List
+              </BackToListButton>
+            </>
           )}
         </SongDetailsWrapper>
       </SongBox>
