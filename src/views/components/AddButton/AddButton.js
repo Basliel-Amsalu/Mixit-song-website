@@ -22,7 +22,6 @@ function AddButton(props) {
     const currentBlurRef = blur.current;
     currentBlurRef.addEventListener("click", clickHandler);
 
-    // Cleanup: Remove the event listener when the component unmounts
     return () => {
       currentBlurRef.removeEventListener("click", clickHandler);
     };

@@ -15,66 +15,70 @@ const sideEffectSlice = createSlice({
 
 const songSlice = createSlice({
   name: "song",
-  initialState: { songs: [] },
+  initialState: { loading: false, song: {}, songs: [], error: "" },
   reducers: {
+    getSong(state, action) {
+      state.loading = true;
+    },
+    getSongSuccess(state, action) {
+      state.loading = false;
+      state.song = action.payload;
+    },
     getSongs(state, action) {
-      return state;
+      state.loading = true;
     },
     getSongsSuccess(state, action) {
-      return {
-        ...state,
-        songs: action.payload,
-      };
+      state.loading = false;
+      state.songs = action.payload;
     },
 
-    addSongsSuccess(state, action) {
-      return {
-        ...state,
-        songs: [...state.songs, action.payload],
-      };
+    addSongSuccess(state, action) {
+      state.loading = false;
+      state.songs = [...state.songs, action.payload];
     },
     songsFailure(state, action) {
-      return state;
+      state.loading = false;
+      state.error = action.payload;
     },
-    songsRequest(state, action) {
-      return state;
+    addSong(state, action) {
+      state.loading = true;
     },
     deleteSong(state, action) {
-      return state;
+      state.loading = true;
     },
     deleteSongSuccess(state, action) {
-      return {
-        ...state,
-        songs: [...state.songs.filter((song) => song.id !== action.payload)],
-      };
+      state.loading = false;
+      state.songs = [
+        ...state.songs.filter((song) => song.id !== action.payload),
+      ];
     },
     updateSong(state, action) {
-      return state;
+      state.loading = true;
     },
     updateSongSuccess(state, action) {
+      state.loading = false;
       const updatedSongs = state.songs.map((song) => {
         if (song.id !== action.payload.id) {
           return song;
         }
         return action.payload;
       });
-      return {
-        ...state,
-        songs: updatedSongs,
-      };
+      state.songs = updatedSongs;
     },
   },
 });
 
 export const {
   getSongs,
+  getSong,
 
   addSong,
   songsFailure,
-  songsRequest,
+
+  getSongSuccess,
   getSongsSuccess,
 
-  addSongsSuccess,
+  addSongSuccess,
   deleteSongSuccess,
   deleteSong,
   updateSong,

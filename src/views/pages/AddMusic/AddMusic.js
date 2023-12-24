@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import "./AddMusic.styles.js";
 import { useState, useRef, useEffect } from "react";
-import { songsRequest, updateSong } from "../../../state/reducers";
+import { addSong, updateSong } from "../../../state/reducers";
 import {
   BlurredOverlay,
   AddMusicContainer,
@@ -14,15 +14,13 @@ import {
   AddMusicBtns,
   AddMusicAddButton,
   AddMusicClearButton,
-  AddMusicButtonHover,
-  AddMusicButtonActive,
   AddMusicFormTextArea,
 } from "./AddMusic.styles";
 
 function AddMusic() {
-  const update = useSelector((state) => state.sideEffect.update);
-  const music = useSelector((state) => state.sideEffect.music);
-  console.log(update);
+  const sideEffectState = useSelector((state) => state.sideEffect);
+
+  const { update, music } = sideEffectState;
   const dispatch = useDispatch();
   const [formData, setFormData] = useState({
     title: "",
@@ -53,7 +51,6 @@ function AddMusic() {
 
   function handleSubmit() {
     if (update) {
-      console.log("Update");
       dispatch(
         updateSong({
           ...formData,
@@ -61,7 +58,7 @@ function AddMusic() {
         })
       );
     } else {
-      dispatch(songsRequest(formData));
+      dispatch(addSong(formData));
     }
 
     toggle();
@@ -74,7 +71,7 @@ function AddMusic() {
   return (
     <>
       <BlurredOverlay
-        className="blurred-overlay"
+        className='blurred-overlay'
         style={{ display: "none" }}
         ref={blur}
       >
@@ -83,7 +80,7 @@ function AddMusic() {
             <AddMusicFormContainer>
               <AddMusicCover
                 src={require("../../images/music_image_cover.png")}
-                alt="music cover"
+                alt='music cover'
                 width={200}
                 height={100}
               />
@@ -94,7 +91,7 @@ function AddMusic() {
               <AddMusicFormLabel>Title:</AddMusicFormLabel>
 
               <AddMusicFormInput
-                type="text"
+                type='text'
                 value={formData.title}
                 onChange={(e) =>
                   setFormData({ ...formData, title: e.target.value })
@@ -104,7 +101,7 @@ function AddMusic() {
               <AddMusicFormLabel>Duration:</AddMusicFormLabel>
 
               <AddMusicFormInput
-                type="text"
+                type='text'
                 value={formData.duration}
                 onChange={(e) =>
                   setFormData({ ...formData, duration: e.target.value })
@@ -114,7 +111,7 @@ function AddMusic() {
               <AddMusicFormLabel>Artist:</AddMusicFormLabel>
 
               <AddMusicFormInput
-                type="text"
+                type='text'
                 value={formData.artist}
                 onChange={(e) =>
                   setFormData({ ...formData, artist: e.target.value })
@@ -124,7 +121,7 @@ function AddMusic() {
               <AddMusicFormLabel>Lyrics:</AddMusicFormLabel>
 
               <AddMusicFormTextArea
-                type="text"
+                type='text'
                 value={formData.lyrics}
                 onChange={(e) =>
                   setFormData({ ...formData, lyrics: e.target.value })

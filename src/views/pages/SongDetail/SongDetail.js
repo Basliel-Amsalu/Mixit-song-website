@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getSongs } from "../../../state/reducers";
+import { getSong, getSongs } from "../../../state/reducers";
 import { useParams, useNavigate } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
@@ -17,15 +17,15 @@ import {
 
 function SongDetails() {
   const dispatch = useDispatch();
-  const songState = useSelector((state) => state.song.songs);
+  const songState = useSelector((state) => state.song);
   const params = useParams();
   const navigate = useNavigate();
 
   useEffect(() => {
-    dispatch(getSongs());
-  }, [dispatch]);
+    dispatch(getSong(params.id));
+  }, [dispatch, params.id]);
 
-  const song = songState.find((song) => song.id.toString() === params.id);
+  const { loading, song, error } = songState;
 
   const handleBackToList = () => {
     navigate("/");
@@ -36,7 +36,9 @@ function SongDetails() {
       <Header />
       <SongBox>
         <SongDetailsWrapper>
-          {song ? (
+          {loading && <p>Loading...</p>}
+          {!loading && error && <p>{error} </p>}
+          {!loading && song ? (
             <>
               <SongDetail>
                 <SongDetailTitle>Song Title: {song.name}</SongDetailTitle>
